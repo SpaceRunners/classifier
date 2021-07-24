@@ -101,7 +101,7 @@ for index, row in tq(df_all.iterrows()):
         os.makedirs(os.path.join(dataset_path,row['set'],row['tag']))
     
     #define file dest
-    destination_file_name = file_path.split('\\')[-1]
+    destination_file_name = file_path.split(os.sep)[-1]
     file_dest = os.path.join(dataset_path,row['set'],row['tag'],destination_file_name)
     
     #copy file from source to dest
