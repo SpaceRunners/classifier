@@ -72,24 +72,20 @@ print(df_all.groupby(['set','tag']).size(),'\n')
 
 print('===================================================== \n')
 
+#cek sample datanya
+print(df_all.sample(3))
+print('===================================================== \n')
+
 # menghapus folder dataset jika diperlukan
 #!rm -rf dataset/
 
-import time, shutil
-from tqdm.notebook import tqdm as tq
+import shutil
+from tqdm import tqdm as tq
 
 datasource_path = "flowers/"
 dataset_path = "dataset/"
 
-#cek sampel datanya
-print('sample:',df_all.sample(3))
-print('\nproceed sample (3x):')
-
-for index in tq(df_all.sample(3)):
-    time.sleep(.1)
-
-print('\nproceed',len(df_all),'dataset:')
-for index, row in tq(df_all.iterrows()):
+for index, row in tq(df_all.iterrows(), total=df_all.shape[0]):
     
     #detect filepath
     file_path = row['path']
