@@ -1,4 +1,5 @@
-
+.idea/
+*.zip
 *.jpg
 flowers/dandelion/run_me.py
 flowers/dandelion/flickr.pyc
